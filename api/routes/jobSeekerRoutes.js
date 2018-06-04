@@ -11,5 +11,5 @@ module.exports = function(app) {
   app.route('/jobseekers/:jobSeekerId')
     .get(jobSeekerList.read_a_jobseeker)
     .put(jobSeekerList.update_a_jobseeker)
-    .delete(jobSeekerList.delete_a_jobseeker);
+    .delete(jobSeekerList.delete_a_jobseeker)
 };

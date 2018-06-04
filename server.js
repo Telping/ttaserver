@@ -63,7 +63,7 @@ app.post('/authenticate', function(req, res) {
 
   // find the user
   JobSeeker.findOne({
-    firstName: req.body.firstName
+    email: req.body.email
   }, function(err, jobseeker) {
 
     if (err) throw err;
@@ -71,7 +71,6 @@ app.post('/authenticate', function(req, res) {
     if (!jobseeker) {
       res.json({ success: false, message: 'Authentication failed. User not found.' });
     } else if (jobseeker) {
-
       // check if password matches
       bcrypt.compare(req.body.password, jobseeker.password, function(err, resp) {
 
@@ -81,7 +80,7 @@ app.post('/authenticate', function(req, res) {
           // we don't want to pass in the entire user since that has the password
 
           const payload = {
-            firtName: jobseeker.firstName
+            email: jobseeker.email
           };
           var token = jwt.sign(payload, app.get('superSecret'), {
             expiresIn : 60*60*24 // expires in 24 hours
@@ -90,8 +89,13 @@ app.post('/authenticate', function(req, res) {
           // return the information including token as JSON
           res.json({
             success: true,
-            message: 'Enjoy your token!',
-            token: token
+            message: 'Enjoy your token Tarig!',
+            tokens: [{
+          		type: 'access',
+          		value: token,
+          		expiresIn: 60*60*24,
+          	}],
+          //  username: jobseeker.firstName,
           });
 
         } else {
@@ -101,10 +105,6 @@ app.post('/authenticate', function(req, res) {
     }
   });
 });
-
-
-var jobSeekerRoutes = require('./api/routes/jobSeekerRoutes'); //importing route
-jobSeekerRoutes(app); //register the route
 
 // route middleware to verify a token
 app.use(function(req, res, next) {
@@ -137,6 +137,9 @@ app.use(function(req, res, next) {
 
   }
 });
+
+var jobSeekerRoutes = require('./api/routes/jobSeekerRoutes'); //importing route
+jobSeekerRoutes(app); //register the route
 
 var inboxRoutes = require('./api/routes/inboxRoutes'); //importing route
 inboxRoutes(app); //register the route
