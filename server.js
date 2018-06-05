@@ -48,6 +48,43 @@ app.get('/setup', function(req, res) {
     console.log('User saved successfully');
     res.json({ success: true });
   });
+
+  var job1 = new Job({
+    status: "open",
+    title: "Labourer required Fulham",
+    jobID: "#JR38535",
+    description: "Independent household requires skilled labourer for a weekends work.",
+  });
+
+  var job2 = new Job({
+    status: "open",
+    title: "Labourer required Brooklyn",
+    jobID: "#JR38535",
+    description: "Independent household requires skilled labourer for a ReactNative App",
+  });
+  
+  var job3 = new Job({
+    status: "open",
+    title: "Labourer required London",
+    jobID: "#JR38535",
+    description: "Independent household requires skilled labourer for an hours work.",
+  });
+
+  job1.save(function(err) {
+    if (err) throw err;
+    console.log('User saved successfully');
+    res.json({ success: true });
+  });
+  job2.save(function(err) {
+    if (err) throw err;
+    console.log('User saved successfully');
+    res.json({ success: true });
+  });
+  job3.save(function(err) {
+    if (err) throw err;
+    console.log('User saved successfully');
+    res.json({ success: true });
+  });
 });
 
 // get an instance of the router for api routes
