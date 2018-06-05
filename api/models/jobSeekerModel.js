@@ -1,8 +1,7 @@
 'use strict';
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+const bcrypt = require('../../server.js').bcrypt
 var Schema = mongoose.Schema;
-
 
 var JobSeekerSchema = new Schema({
   firstName: {

@@ -1,6 +1,7 @@
 var jwt    = require('jsonwebtoken');
 var morgan = require('morgan');
-var bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
+module.exports.bcrypt = bcrypt;
 
 var express = require('express'),
   app = express(),
