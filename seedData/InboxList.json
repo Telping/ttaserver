@@ -1,0 +1,37 @@
+[
+    {
+      "jobid" : "JR13567",
+      "contact" : "Mary Johnson",
+      "latestMessage" : "Perfect see you then :)",
+      "dateReceived" : "2018-06-11T08:00:00+00:00",
+      "lastSender" : false
+    },
+    {
+      "jobid" : "JR12567",
+      "contact" : "Peter Carlsson",
+      "latestMessage" : "Sure, i can bring a jack hammer and a trowel",
+      "dateReceived" : "2018-06-10T08:00:00+00:00",
+      "lastSender" : true
+    },
+    {
+      "jobid" : "JR22567",
+      "contact" : "Trevor Hansen",
+      "latestMessage" : "Ok meet you beside the sainsburys on the roundabout",
+      "dateReceived" : "2018-04-03T08:00:00+00:00",
+      "lastSender" : true
+    },
+    {
+      "jobid" : "JR13567",
+      "contact" : "Aaron Bennett",
+      "latestMessage" : "Do you think we will need to bring in some scaffolding?",
+      "dateReceived" : "2018-04-03T08:00:00+00:00",
+      "lastSender" : false
+    },
+    {
+      "jobid" : "JR12569",
+      "contact" : "Abbey Christian",
+      "latestMessage" : "Haha ok cool thanks for that",
+      "dateReceived" : "2018-04-02T08:00:00+00:00",
+      "lastSender" : false
+    }
+]
