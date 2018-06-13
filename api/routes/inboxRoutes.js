@@ -7,7 +7,6 @@ module.exports = function(app) {
     .get(inboxList.list_all_inbox)
     .post(inboxList.create_an_inbox);
 
-
   app.route('/inbox/:inboxId')
     .get(inboxList.read_an_inbox)
     .put(inboxList.update_an_inbox)

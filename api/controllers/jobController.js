@@ -12,7 +12,6 @@ exports.list_all_jobs = function(req, res) {
   });
 };
 
-
 exports.create_a_job = function(req, res) {
   var new_job = new Job(req.body);
   new_job.save(function(err, job) {
@@ -22,7 +21,6 @@ exports.create_a_job = function(req, res) {
   });
 };
 
-
 exports.read_a_job = function(req, res) {
   Job.findById(req.params.jobId, function(err, job) {
     if (err)
@@ -31,7 +29,6 @@ exports.read_a_job = function(req, res) {
   });
 };
 
-
 exports.update_a_job = function(req, res) {
   Job.findOneAndUpdate({_id: req.params.jobId}, req.body, {new: true}, function(err, job) {
     if (err)
@@ -39,7 +36,6 @@ exports.update_a_job = function(req, res) {
     res.json(job);
   });
 };
-
 
 exports.delete_a_job = function(req, res) {
   Job.remove({

@@ -7,7 +7,6 @@ module.exports = function(app) {
     .get(jobList.list_all_jobs)
     .post(jobList.create_a_job);
 
-
   app.route('/job/:jobId')
     .get(jobList.read_a_job)
     .put(jobList.update_a_job)
