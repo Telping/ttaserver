@@ -92,6 +92,28 @@ app.get('/', function(req, res) {
     res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
 
+app.get('/setup', function(req, res) {
+
+  // create a sample user
+  var tarig = new JobSeeker({
+    firstName: 'tarigHash',
+    lastName: 'elomari',
+    email: 'tarig.elomari@gmail.com',
+    password: 'password',
+    contactNumber: '456789',
+    addressLine1: 'somewhere nice',
+    postcode: 'sw4 9ij'
+  });
+
+  // save the sample user
+  tarig.save(function(err) {
+    if (err) throw err;
+
+    console.log('User saved successfully');
+    res.json({ success: true });
+  });
+});
+
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
 app.post('/authenticate', function(req, res) {
   // find the user

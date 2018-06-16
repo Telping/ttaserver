@@ -2,7 +2,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
 var jobSchema = new Schema({
   jobid: {
     type: String

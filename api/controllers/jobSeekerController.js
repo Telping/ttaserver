@@ -11,9 +11,6 @@ exports.list_all_jobseekers = function(req, res) {
   });
 };
 
-
-
-
 exports.create_a_jobseeker = function(req, res) {
   var new_jobseeker = new JobSeeker(req.body);
   new_jobseeker.save(function(err, jobSeeker) {
@@ -22,7 +19,6 @@ exports.create_a_jobseeker = function(req, res) {
     res.json(jobSeeker);
   });
 };
-
 
 exports.read_a_jobseeker = function(req, res) {
   JobSeeker.findById(req.params.taskId, function(err, jobSeeker) {
