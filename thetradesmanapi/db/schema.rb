@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_190921) do
+ActiveRecord::Schema.define(version: 2018_06_16_193706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "job_seeker_id"
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["job_seeker_id"], name: "index_applications_on_job_seeker_id"
+  end
 
   create_table "job_owners", force: :cascade do |t|
     t.string "organization", default: "", null: false
@@ -58,6 +68,36 @@ ActiveRecord::Schema.define(version: 2018_06_16_190921) do
     t.string "status", default: "open"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "job_owner_id"
+    t.bigint "location_id"
+    t.index ["job_owner_id"], name: "index_jobs_on_job_owner_id"
+    t.index ["location_id"], name: "index_jobs_on_location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.bigint "job_owner_id"
+    t.string "name"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.string "post_code"
+    t.string "county"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_owner_id"], name: "index_locations_on_job_owner_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "job_seeker_id"
+    t.bigint "job_owner_id"
+    t.string "author", default: "", null: false
+    t.float "star_rating", default: 3.0, null: false
+    t.text "review", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_owner_id"], name: "index_ratings_on_job_owner_id"
+    t.index ["job_seeker_id"], name: "index_ratings_on_job_seeker_id"
   end
 
   create_table "users", force: :cascade do |t|
