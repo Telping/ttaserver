@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_091121) do
+ActiveRecord::Schema.define(version: 2018_06_16_190921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "job_owners", force: :cascade do |t|
+    t.string "organization", default: "", null: false
+    t.string "contact_first_name", default: "", null: false
+    t.string "contact_last_name", default: "", null: false
+    t.string "contact_email"
+    t.string "contact_role"
+    t.string "string", default: "", null: false
+    t.string "contact_number", default: "", null: false
+    t.float "star_rating"
+    t.text "about"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_job_owners_on_user_id"
+  end
+
+  create_table "job_seekers", force: :cascade do |t|
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "contact_phone"
+    t.string "post_code"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.float "star_rating"
+    t.text "about"
+    t.boolean "driving_license"
+    t.float "half_day_rate"
+    t.float "full_day_rate"
+    t.float "hourly_rate"
+    t.string "user_type", default: "tradesman"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_job_seekers_on_user_id"
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"

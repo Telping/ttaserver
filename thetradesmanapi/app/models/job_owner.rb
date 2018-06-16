@@ -1,0 +1,2 @@
+class JobOwner < ApplicationRecord
+end

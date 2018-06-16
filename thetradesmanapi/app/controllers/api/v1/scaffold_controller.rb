@@ -2,11 +2,10 @@ module Api
   module V1
     class JobsController < ApiController
       before_action :set_job, only: [:show, :update, :destroy]
-      before_action :authenticate_user!, except:[:create, :index]
+      before_action :authenticate_user!, except:[:create]
 
       def index
         @jobs = Job.all
-        json_response(@jobs)
       end
 
       def show

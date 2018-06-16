@@ -1,0 +1,3 @@
+class JobSerializer < ActiveModel::Serializer
+  attributes :id, :title, :description, :status, :created_at, :updated_at
+end

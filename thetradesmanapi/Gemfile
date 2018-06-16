@@ -13,6 +13,7 @@ gem 'devise_token_auth'
 gem 'kaminari'
 gem 'pager_api'
 gem 'apipie-rails'
+gem 'active_model_serializers'
 gem 'bootsnap'
 
 # https://github.com/thoughtbot/administrate
